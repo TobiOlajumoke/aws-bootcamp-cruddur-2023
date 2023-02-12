@@ -2,3 +2,5 @@
 
 - Conceptual Architecture Diagram
 ![Alt text](../_docs/assets/Conceptual%20Architecture%20Diagram.png)
+
+- I was able to set up a billing alarm
