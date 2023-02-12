@@ -5,3 +5,5 @@
 
 - I was able to set up a billing alarm
 - I was able to set up aws budget 
+- I destroyed my root account credentials and was able to Set MFA & IAM role
+
