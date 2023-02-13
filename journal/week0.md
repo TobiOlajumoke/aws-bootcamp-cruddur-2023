@@ -6,5 +6,5 @@
 - I was able to set up a billing alarm
 - I was able to set up aws budget 
 - I destroyed my root account credentials and was able to Set MFA & IAM role
-- Review all the questions of each pillars in the Well Architected Tool (No specialized lens)
 
+- Review all the questions of each pillars in the Well Architected Tool (No specialized lens)
