@@ -11,6 +11,8 @@ You will absolutely want to activate Multi Factor Authentication (MFA) too for y
 
 -  Now we set up MFA for the [user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.html)
 
+- we can login into our IAM user after inputing the MFA code 
+
 
 
 - Create an architectural diagram (to the best of your ability) the CI/CD logical pipeline in Lucid Charts
