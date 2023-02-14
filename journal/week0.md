@@ -14,8 +14,15 @@ You will absolutely want to activate Multi Factor Authentication (MFA) too for y
 - we can login into our IAM user after inputing the MFA code 
 
 
+## Seting up AWS Budgets, AWS Cost Explorer, Billing Alarms
 
-- Create an architectural diagram (to the best of your ability) the CI/CD logical pipeline in Lucid Charts
+- Go to billing 
+![Alt text](../journal_images/billing.png)
+
+
+## Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
+
+##  Create an architectural diagram (to the best of your ability) the CI/CD logical pipeline in Lucid Charts
 ![Alt text](../_docs/assets/Conceptual%20Architecture%20Diagram.png)
 
 - I was able to set up a billing alarm
