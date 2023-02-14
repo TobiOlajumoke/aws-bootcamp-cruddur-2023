@@ -23,6 +23,7 @@ You will absolutely want to activate Multi Factor Authentication (MFA) too for y
 
 ![Alt text](../journal_images/budget.png)
 
+![Alt text](../journal_images/create_budget.png)
 
 
 ## Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
