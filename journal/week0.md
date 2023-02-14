@@ -1,8 +1,16 @@
 # Week 0 — Billing and Architecture
 
-- Destroy your root account credentials, Set MFA, IAM role
+##  Destroy your root account credentials, Set MFA, IAM role
 
-Never, ever, use your root account for everyday use. Instead, head to (Identity and Access Management (IAM))[https://youtu.be/OdUnNuKylHg?t=967] and create an administrator user. 
+Never, ever, use your root account for everyday use. Instead, head to [Identity and Access Management (IAM)](https://youtu.be/OdUnNuKylHg?t=967) and create an administrator user. 
+
+- Protect and lock your root credentials in a secure place 
+You will absolutely want to activate Multi Factor Authentication (MFA) too for your root account. And you won’t use this user unless strictly necessary.
+
+- Now, about your newly created admin account, activating MFA for it is a must. It’s actually a requirement for every user in your account if you want to have a security first mindset.
+
+-  Now we set up MFA for the [user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.html)
+
 
 
 - Create an architectural diagram (to the best of your ability) the CI/CD logical pipeline in Lucid Charts
