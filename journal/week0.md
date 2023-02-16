@@ -80,10 +80,10 @@ We are gonna create 2 budget one for AWS credits and the other  for actual dolla
 ![Alt text](../journal_images/budget1.8.png)
 ![Alt text](../journal_images/budget1.9.png)
 
-- Next and configure threshold for 50%, 75% and 100%
+- Next and configure threshold for 50%, 75% and 100% and  email address
 ![Alt text](../journal_images/budget2.png)
 
-- Add threshold for 75% and 100%
+- Add threshold for 75% and 100% 
 ![Alt text](../journal_images/budget2.1.png)
 
 ![Alt text](../journal_images/budget2.2.png)
@@ -95,6 +95,7 @@ Use it to route events from sources such as home-grown applications, AWS service
 EventBridge provides a simple and consistent way to ingest, filter, transform, and deliver events so you can build new applications quickly. 
 ##  Create an architectural diagram (to the best of your ability) the CI/CD logical pipeline in Lucid Charts
 ![Alt text](../_docs/assets/Conceptual%20Architecture%20Diagram.png)
+
 
 - I was able to set up a billing alarm
 - I was able to set up aws budget 
