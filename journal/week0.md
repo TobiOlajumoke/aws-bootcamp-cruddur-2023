@@ -1,6 +1,7 @@
-# Week 0 — Billing and Architecture
+# Billing, Architecture, Security
 
 ##  Destroy your root account credentials, Set MFA, IAM role
+Multifactor authentication (MFA) is a security technology that requires multiple methods of authentication from independent categories of credentials to verify a user's identity for a login or other transaction.
 
 Never, ever, use your root account for everyday use. Instead, head to [Identity and Access Management (IAM)](https://youtu.be/OdUnNuKylHg?t=967) and create an administrator user. 
 
