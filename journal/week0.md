@@ -47,7 +47,7 @@ You will absolutely want to activate Multi Factor Authentication (MFA) too for y
 - we can login into our IAM user after inputing the MFA code 
 
 
-## Seting up AWS Budgets, AWS Cost Explorer, Billing Alarms
+## Seting up AWS Budgets & Billing Alarms
 
 AWS Budgets is a service that enables you to set custom cost and usage budgets that notify you when you exceed or are forecasted to exceed your budgeted amount. With AWS Budgets, you can track your service usage and your expenses, so you can optimize your costs and adjust your usage when necessary. You can create budgets for specific services or resource groups, set custom alerts, and receive notifications via email or SMS.
 
@@ -62,6 +62,13 @@ We are gonna create 2 budget one for AWS credits and the other  for actual dolla
 ![Alt text](../journal_images/budget.png)
 
 ![Alt text](../journal_images/create_budget.png)
+
+![Alt text](../journal_images/budget1.4.png)
+
+
+
+
+
 
 
 ## Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
