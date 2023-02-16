@@ -19,6 +19,20 @@ The "AWSBudgetsFullAccess" policy grants the user full access to create, edit an
 - Click "Next: Tags" to add tags to the user (optional).
 - Click "Next: Review" to review your settings, and then click "Create user" to create the IAM user.
 
+
+# To activate IAM user and role access to the Billing and Cost Management console
+- Sign in to the AWS Management Console with your root user credentials (specifically, the email address and password that you used to create your AWS account).
+
+- On the navigation bar, choose your account name, and then choose Account.
+
+- Next to IAM User and Role Access to Billing Information, choose Edit.
+
+- Select the Activate IAM Access check box to activate access to the Billing and Cost Management console pages.
+
+- Choose Update.
+
+[Read the AWS Official Documentations](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_billing.html?icmpid=docs_iam_console#tutorial-billing-step1)
+
 # MFA
 Multifactor authentication (MFA) is a security technology that requires multiple methods of authentication from independent categories of credentials to verify a user's identity for a login or other transaction.
 Never, ever, use your root account for everyday use. Instead, head to [Identity and Access Management (IAM)](https://youtu.be/OdUnNuKylHg?t=967) and create an administrator user. 
@@ -34,6 +48,11 @@ You will absolutely want to activate Multi Factor Authentication (MFA) too for y
 
 
 ## Seting up AWS Budgets, AWS Cost Explorer, Billing Alarms
+
+AWS Budgets is a service that enables you to set custom cost and usage budgets that notify you when you exceed or are forecasted to exceed your budgeted amount. With AWS Budgets, you can track your service usage and your expenses, so you can optimize your costs and adjust your usage when necessary. You can create budgets for specific services or resource groups, set custom alerts, and receive notifications via email or SMS.
+
+We are gonna create 2 budget one for AWS credits and the other  for actual dollar spend
+
 
 - Go to billing 
 ![Alt text](../journal_images/billing.png)
