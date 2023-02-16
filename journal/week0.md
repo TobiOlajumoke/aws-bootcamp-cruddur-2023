@@ -65,11 +65,28 @@ We are gonna create 2 budget one for AWS credits and the other  for actual dolla
 
 ![Alt text](../journal_images/budget1.4.png)
 
+- Give the budget a unique name
 
+![Alt text](../journal_images/budget1.5.png)
 
+- Input your budgeted ammount mine here is $20
 
+![Alt text](../journal_images/budget1.6.png)
 
+- Remove all and add credits
 
+![Alt text](../journal_images/budget1.7.png)
+
+![Alt text](../journal_images/budget1.8.png)
+![Alt text](../journal_images/budget1.9.png)
+
+- Next and configure threshold for 50%, 75% and 100%
+![Alt text](../journal_images/budget2.png)
+
+- Add threshold for 75% and 100%
+![Alt text](../journal_images/budget2.1.png)
+
+![Alt text](../journal_images/budget2.2.png)
 
 ## Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 
