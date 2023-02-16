@@ -1,8 +1,26 @@
 # Billing, Architecture, Security
 
-##  Destroy your root account credentials, Set MFA, IAM role
-Multifactor authentication (MFA) is a security technology that requires multiple methods of authentication from independent categories of credentials to verify a user's identity for a login or other transaction.
+##  Destroy your root account credentials, Set MFA, 
 
+
+## Create an IAM user
+- Sign in to the AWS Management Console with your root account credentials.
+Navigate to the IAM service console.
+- Click on the "Users" link in the left-hand menu and then click the "Add user" button.
+- Enter a name for the user in the "User name" field.
+- Select the "Programmatic access" and/or "AWS Management Console access" checkboxes to grant the user access to AWS resources via the AWS CLI, SDKs, or the AWS Management Console.
+- If you select "AWS Management Console access", choose whether to create a custom password or allow the user to create their own password.
+- Click "Next: Permissions".
+- In the "Set permissions" step, you want to grant budget and cost alert permissions.
+- Click on the "Permissions" tab and click the "Attach policies" button.
+- In the search bar, search for "AWSBudgetsFullAccess" policy and select it.
+- Click on "Attach policy".
+The "AWSBudgetsFullAccess" policy grants the user full access to create, edit and delete budgets and also to receive budget notifications.
+- Click "Next: Tags" to add tags to the user (optional).
+- Click "Next: Review" to review your settings, and then click "Create user" to create the IAM user.
+
+# MFA
+Multifactor authentication (MFA) is a security technology that requires multiple methods of authentication from independent categories of credentials to verify a user's identity for a login or other transaction.
 Never, ever, use your root account for everyday use. Instead, head to [Identity and Access Management (IAM)](https://youtu.be/OdUnNuKylHg?t=967) and create an administrator user. 
 
 - Protect and lock your root credentials in a secure place 
