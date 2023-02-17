@@ -88,6 +88,11 @@ We are gonna create 2 budget one for AWS credits and the other  for actual dolla
 
 ![Alt text](../journal_images/budget2.2.png)
 
+
+- In the budget scpoe select all except "credit" 
+and CREATE it
+It should look ike this
+![Alt text](../journal_images/budget2.3.png)
 ## Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 
 EventBridge is a serverless service that uses events to connect application components together, making it easier for you to build scalable event-driven applications.
