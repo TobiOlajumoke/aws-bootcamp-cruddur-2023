@@ -93,7 +93,7 @@ We are gonna create 2 budget one for AWS credits and the other  for actual dolla
 and CREATE it
 It should look ike this
 ![Alt text](../journal_images/budget2.3.png)
-## Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
+## EventBridge 
 
 EventBridge is a serverless service that uses events to connect application components together, making it easier for you to build scalable event-driven applications.
 Use it to route events from sources such as home-grown applications, AWS services, and third- party software to consumer applications across your organization.
@@ -102,18 +102,19 @@ EventBridge provides a simple and consistent way to ingest, filter, transform, a
 
 
 
-##  Recreate Conceptual Diagram in Lucid Charts or on a Napkin
+##  Conceptual Diagram in Lucid Charts or on a Napkin
 
 A conceptual architecture diagram is a high-level representation of the system that shows the major components and how they interact with each other. It is often used in the early stages of a project to communicate the overall design and approach. This diagram is focused on the business concepts, requirements and goals of the system, and does not get into the details of specific technologies, platforms, or protocols.
 
 - Looks like this:
+
 ![Alt text](../journal_images/Conceptual%20Architecture%20Diagram.png)
 
 Use this [link](https://lucid.app/lucidchart/b39e0bb3-79e0-4acc-ab83-141eb0596c8e/edit?viewport_loc=-1538%2C14%2C2613%2C1120%2C0_0&invitationId=inv_08af9809-c94e-4378-96ea-1bb6320eb431) to veiw 
 
 
 
-## Recreate Logical Architectual Diagram in Lucid Charts
+## Logical Architectual Diagram in Lucid Charts
 
 A logical architecture diagram is a more detailed representation of the system that shows how the major components and subsystems fit together, as well as how data flows between them. This diagram is focused on the logical components of the system, and often includes information about specific technologies, platforms, and protocols that will be used.
 
