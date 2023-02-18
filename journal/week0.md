@@ -108,7 +108,7 @@ A conceptual architecture diagram is a high-level representation of the system t
 
 - Looks like this:
 
-![Alt text](../journal_images/Conceptual%20Architecture%20Diagram.png)
+![Alt text](../journal_images/Napkin.png)
 
 Use this [link](https://lucid.app/lucidchart/b39e0bb3-79e0-4acc-ab83-141eb0596c8e/edit?viewport_loc=-1538%2C14%2C2613%2C1120%2C0_0&invitationId=inv_08af9809-c94e-4378-96ea-1bb6320eb431) to veiw 
 
