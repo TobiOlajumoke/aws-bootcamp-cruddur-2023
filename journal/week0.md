@@ -215,4 +215,16 @@ The Well-Architected Framework is a set of best practices created by AWS to ensu
 - The Well-Architected Tool can be used to ensure that your cloud-based workloads are running at peak efficiency and align with best practices in each of the five or six pillars.
 
 
- 
+## THE 6 PILLARS
+
+- Operational Excellence: This pillar focuses on running and monitoring systems to deliver business value, continuously improving processes and procedures, and ensuring that personnel and procedures are in place to respond to operational events.
+
+- Security: This pillar focuses on protecting information and systems. It covers confidentiality and integrity of data, identifying and managing who can do what with privilege management, protecting systems, and establishing controls to detect security events.
+
+- Reliability: This pillar focuses on the ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues.
+
+- Performance Efficiency: This pillar focuses on using computing resources efficiently to meet system requirements, and maintaining that efficiency as demand changes and technologies evolve.
+
+- Cost Optimization: This pillar focuses on avoiding unneeded costs, identifying opportunities to reduce costs, and making informed decisions about which services to use and how to provision them.
+
+- Sustainability Pillar: This pillar focuses on minimizing the environmental impacts of running cloud workloads. Key topics include a shared responsibility model for sustainability, understanding impact, and maximizing utilization to minimize required resources and reduce downstream impacts.
