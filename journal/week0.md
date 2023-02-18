@@ -200,3 +200,19 @@ A logical architecture diagram is a more detailed representation of the system t
 ![Alt text](../journal_images/Diagram%202.png)
 
 Use this [link](https://lucid.app/lucidchart/fcbe4ace-283c-4290-ab6d-e07f1f619e44/edit?viewport_loc=-106%2C-163%2C3072%2C1317%2C0_0&invitationId=inv_9e537613-e6c5-49fe-a28f-0e9965cccc45) to veiw the diagram
+
+
+
+## Well Architected Tool
+
+The Well-Architected Framework is a set of best practices created by AWS to ensure that workloads on their cloud platform are designed in the most efficient and effective way.
+
+- The framework includes five pillars: operational excellence, security, reliability, performance efficiency, and cost optimization, and has recently added a sixth pillar, sustainability.
+
+- There is a Well-Architected Tool that automates the process of evaluating whether your workload aligns with best practices in each of the pillars, and generates a report with recommendations.
+- The tool is accessed through the AWS console and requires you to define your workload, answer questions about it, and assign responsibility for maintaining the report.
+
+- The Well-Architected Tool can be used to ensure that your cloud-based workloads are running at peak efficiency and align with best practices in each of the five or six pillars.
+
+
+ 
