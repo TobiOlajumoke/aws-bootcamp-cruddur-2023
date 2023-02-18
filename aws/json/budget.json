@@ -3,7 +3,7 @@
         "Amount": "10",
         "Unit": "USD"
     },
-    "BudgetName": "Example Tag Budget",
+    "BudgetName": "Tobi Bills",
     "BudgetType": "COST",
     "CostFilters": {
         "TagKeyValue": [
