@@ -1,5 +1,11 @@
 # Week 1 — App Containerization
 
+## What is Docker?
+Docker is a tool that allows you to create and manage lightweight, portable containers that can run your applications in any environment, without worrying about dependencies or other environmental factors.
+
+
+
+
 ## References
 
 Good Article for Debugging Connection Refused
