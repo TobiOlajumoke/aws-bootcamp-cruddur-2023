@@ -4,7 +4,8 @@
 Docker is a tool that allows you to create and manage lightweight, portable containers that can run your applications in any environment, without worrying about dependencies or other environmental factors.
 
 
-
+### Dockerfile
+A Dockerfile is a text file that contains instructions for building a Docker image. It contains a series of commands that are executed one after the other to create an image. Here's an example of a simple Dockerfile:
 
 ## References
 
