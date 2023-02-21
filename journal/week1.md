@@ -1,1 +1,121 @@
 # Week 1 — App Containerization
+
+## What is Docker?
+Docker is a platform that allows you to create, run, and manage applications in containers. Containers are a lightweight and portable way to package and distribute software, along with all of its dependencies and configuration settings. It is a tool that allows you to create and manage lightweight, portable containers that can run your applications in any environment, without worrying about dependencies or other environmental factors.
+
+### Container
+A Docker container is a running instance of an image. Containers are isolated from the host system and from other containers, but can communicate with each other through a network.
+
+### Registries
+A Docker registry is a centralized location where Docker images can be stored and shared. The most common registry is Docker Hub, which is a public repository of pre-built images.
+
+### Dockerfile
+A Dockerfile is a text file that contains instructions for building a Docker image. It contains a series of commands that are executed one after the other to create an image.
+
+### Docker Compose
+Docker Compose is a tool that allows you to define and run multi-container Docker applications. You can use it to define the services that make up your application, specify their dependencies and configuration, and run them all with a single command.
+
+### Docker Image
+A Docker image is a snapshot of an application and its dependencies. It's created by running the commands in a Dockerfile. You can think of an image as a blueprint for creating containers.
+
+### Docker Container
+A Docker container is a running instance of an image. You can think of a container as a lightweight, isolated virtual environment. Containers have their own file system, networking, and processes, but they share the kernel of the host operating system.
+
+## References
+
+Good Article for Debugging Connection Refused
+https://pythonspeed.com/articles/docker-connection-refused/
+
+
+## VSCode Docker Extension
+
+Docker for VSCode makes it easy to work with Docker
+
+https://code.visualstudio.com/docs/containers/overview
+
+> Gitpod is preinstalled with theis extension
+
+## Containerize Backend
+
+### Run Python
+
+```sh
+cd backend-flask
+export FRONTEND_URL="*"
+export BACKEND_URL="*"
+python3 -m flask run --host=0.0.0.0 --port=4567
+cd ..
+```
+
+- make sure to unlock the port on the port tab
+- open the link for 4567 in your browser
+- append to the url to `/api/activities/home`
+- you should get back json
+
+
+
+### Add Dockerfile
+
+Create a file here: `backend-flask/Dockerfile`
+
+```dockerfile
+FROM python:3.10-slim-buster
+
+WORKDIR /backend-flask
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+COPY . .
+
+ENV FLASK_ENV=development
+
+EXPOSE ${PORT}
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
+```
+
+### Build Container
+
+```sh
+docker build -t  backend-flask ./backend-flask
+```
+
+### Run Container
+
+Run 
+```sh
+docker run --rm -p 4567:4567 -it backend-flask
+FRONTEND_URL="*" BACKEND_URL="*" docker run --rm -p 4567:4567 -it backend-flask
+export FRONTEND_URL="*"
+export BACKEND_URL="*"
+docker run --rm -p 4567:4567 -it -e FRONTEND_URL='*' -e BACKEND_URL='*' backend-flask
+docker run --rm -p 4567:4567 -it  -e FRONTEND_URL -e BACKEND_URL backend-flask
+unset FRONTEND_URL="*"
+unset BACKEND_URL="*"
+```
+
+Run in background
+```sh
+docker container run --rm -p 4567:4567 -d backend-flask
+```
+
+Return the container id into an Env Vat
+```sh
+CONTAINER_ID=$(docker run --rm -p 4567:4567 -d backend-flask)
+```
+
+> docker container run is idiomatic, docker run is legacy syntax but is commonly used.
+
+### Get Container Images or Running Container Ids
+
+```
+docker ps
+docker images
+```
+
+
+### Send Curl to Test Server
+
+```sh
+curl -X GET http://localhost:4567/api/activities/home -H "Accept: application/json" -H "Content-Type: application/json"
+```
