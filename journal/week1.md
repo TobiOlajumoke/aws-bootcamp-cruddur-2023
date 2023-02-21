@@ -18,6 +18,9 @@ Docker Compose is a tool that allows you to define and run multi-container Docke
 ### Docker Image
 A Docker image is a snapshot of an application and its dependencies. It's created by running the commands in a Dockerfile. You can think of an image as a blueprint for creating containers.
 
+### Docker Container
+A Docker container is a running instance of an image. You can think of a container as a lightweight, isolated virtual environment. Containers have their own file system, networking, and processes, but they share the kernel of the host operating system.
+
 ## References
 
 Good Article for Debugging Connection Refused
