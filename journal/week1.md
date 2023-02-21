@@ -10,7 +10,10 @@ A Docker container is a running instance of an image. Containers are isolated fr
 A Docker registry is a centralized location where Docker images can be stored and shared. The most common registry is Docker Hub, which is a public repository of pre-built images.
 
 ### Dockerfile
-A Dockerfile is a text file that contains instructions for building a Docker image. It contains a series of commands that are executed one after the other to create an image. Here's an example of a simple Dockerfile:
+A Dockerfile is a text file that contains instructions for building a Docker image. It contains a series of commands that are executed one after the other to create an image.
+
+### Docker Image
+A Docker image is a snapshot of an application and its dependencies. It's created by running the commands in a Dockerfile. You can think of an image as a blueprint for creating containers.
 
 ## References
 
