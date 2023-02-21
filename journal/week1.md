@@ -3,6 +3,8 @@
 ## What is Docker?
 Docker is a platform that allows you to create, run, and manage applications in containers. Containers are a lightweight and portable way to package and distribute software, along with all of its dependencies and configuration settings. It is a tool that allows you to create and manage lightweight, portable containers that can run your applications in any environment, without worrying about dependencies or other environmental factors.
 
+### Container
+A Docker container is a running instance of an image. Containers are isolated from the host system and from other containers, but can communicate with each other through a network.
 
 ### Dockerfile
 A Dockerfile is a text file that contains instructions for building a Docker image. It contains a series of commands that are executed one after the other to create an image. Here's an example of a simple Dockerfile:
