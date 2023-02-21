@@ -12,6 +12,9 @@ A Docker registry is a centralized location where Docker images can be stored an
 ### Dockerfile
 A Dockerfile is a text file that contains instructions for building a Docker image. It contains a series of commands that are executed one after the other to create an image.
 
+### Docker Compose
+Docker Compose is a tool that allows you to define and run multi-container Docker applications. You can use it to define the services that make up your application, specify their dependencies and configuration, and run them all with a single command.
+
 ### Docker Image
 A Docker image is a snapshot of an application and its dependencies. It's created by running the commands in a Dockerfile. You can think of an image as a blueprint for creating containers.
 
