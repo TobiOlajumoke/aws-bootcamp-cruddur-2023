@@ -6,6 +6,9 @@ Docker is a platform that allows you to create, run, and manage applications in 
 ### Container
 A Docker container is a running instance of an image. Containers are isolated from the host system and from other containers, but can communicate with each other through a network.
 
+### Registries
+A Docker registry is a centralized location where Docker images can be stored and shared. The most common registry is Docker Hub, which is a public repository of pre-built images.
+
 ### Dockerfile
 A Dockerfile is a text file that contains instructions for building a Docker image. It contains a series of commands that are executed one after the other to create an image. Here's an example of a simple Dockerfile:
 
