@@ -21,10 +21,14 @@ A Docker image is a snapshot of an application and its dependencies. It's create
 ### Docker Container
 A Docker container is a running instance of an image. You can think of a container as a lightweight, isolated virtual environment. Containers have their own file system, networking, and processes, but they share the kernel of the host operating system.
 
-## References
+## **What is container Security?**
+Container Security is the practice of protecting your application hosted on compute service like  containers.
 
-Good Article for Debugging Connection Refused
-https://pythonspeed.com/articles/docker-connection-refused/
+### **Why container is popular?**
+It is a angnostic way to run application.
+Most people started developing apps on container due to the simplicity to pass the package without considering requirements.
+
+
 
 
 ## VSCode Docker Extension
