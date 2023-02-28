@@ -104,7 +104,7 @@ EXPOSE ${PORT}
 # python3 -m  flask  run --host=0.0.0.0  --port=4567
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 ```
-![Alt text](../journal_images/backend%20docker%20file.png)
+
 
 
 
