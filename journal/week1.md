@@ -428,7 +428,8 @@ import NotificationsFeedPage from './pages/NotificationsFeedPage';
 ```
 ![Alt text](../journal_images/app%20js%20notification%20add.png)
 
->using this video as refrence https://www.youtube.com/watch?v=k-_o0cCpksk
+## Refrence  
+https://www.youtube.com/watch?v=k-_o0cCpksk
 
 ## Adding DynamoDB Local and Postgres
 
@@ -554,9 +555,31 @@ aws dynamodb list-tables --endpoint-url http://localhost:8000
 
 ```sh
 aws dynamodb scan --table-name Music --query "Items" --endpoint-url http://localhost:8000
-````
+```
+
+## For postgres
+- Install a postgress extention
+- open database explorer
+- select postgres from  database tab
+- input the conection name
+- set password as `password`
+- hit connect
+![Alt text](../journal_images/postgres%20setup.png)
+
+- On the terminal
+`psql Upostgres --host localhost`
+when asked type:
+`password`
+- use the to show list 
+type: `\l`
+- to quit 
+tpye :`\q`
+
+![Alt text](../journal_images/postgres%20login.png)
 
 ## References
+https://www.youtube.com/watch?v=CbQNMaa6zTg
 
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
+
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.CLI.html
