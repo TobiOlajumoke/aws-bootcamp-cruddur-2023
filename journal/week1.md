@@ -267,6 +267,169 @@ networks:
     name: cruddur
 ```
 
+
+
+## Created a notification feature (backend and frontend)
+
+### Added this inside the openapi.yml file 
+```sh
+  /api/activities/notifications:
+    get:
+      description: 'Return a feed of activity for all the people i follow'
+      tags:
+        - activities
+        
+      parameters: []
+      responses:
+        '200':
+          description: Returns an array of activities
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
+```
+![Alt text](../journal_images/openai%20notification.png)
+
+
+### Inside the backend-flask/services created a notifications_activities file pasted the below:
+```sh
+from datetime import datetime, timedelta, timezone
+class NotificationsActivities:
+  def run():
+    now = datetime.now(timezone.utc).astimezone()
+    results = [{
+      'uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',
+      'handle':  '3abuza',
+      'message': 'I am a DevOps Engineer',
+      'created_at': (now - timedelta(days=2)).isoformat(),
+      'expires_at': (now + timedelta(days=5)).isoformat(),
+      'likes_count': 5,
+      'replies_count': 1,
+      'reposts_count': 0,
+      'replies': [{
+        'uuid': '26e12864-1c26-5c3a-9658-97a10f8fea67',
+        'reply_to_activity_uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',
+        'handle':  'Worf',
+        'message': 'This post has no honor!',
+        'likes_count': 0,
+        'replies_count': 0,
+        'reposts_count': 0,
+        'created_at': (now - timedelta(days=2)).isoformat()
+      }],
+    },
+   
+    ]
+    return results
+```
+![Alt text](../journal_images/backend%20notification.png)
+
+
+### In the frontend-react-js/src/pages added a new page NotificationsFeedPage.js pasted the below:
+```sh
+import './NotificationsFeedPage.css';
+import React from "react";
+
+import DesktopNavigation  from '../components/DesktopNavigation';
+import DesktopSidebar     from '../components/DesktopSidebar';
+import ActivityFeed from '../components/ActivityFeed';
+import ActivityForm from '../components/ActivityForm';
+import ReplyForm from '../components/ReplyForm';
+
+// [TODO] Authenication
+import Cookies from 'js-cookie'
+
+export default function NotificationsFeedPage() {
+  const [activities, setActivities] = React.useState([]);
+  const [popped, setPopped] = React.useState(false);
+  const [poppedReply, setPoppedReply] = React.useState(false);
+  const [replyActivity, setReplyActivity] = React.useState({});
+  const [user, setUser] = React.useState(null);
+  const dataFetchedRef = React.useRef(false);
+
+  const loadData = async () => {
+    try {
+      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/notifications`
+      const res = await fetch(backend_url, {
+        method: "GET"
+      });
+      let resJson = await res.json();
+      if (res.status === 200) {
+        setActivities(resJson)
+      } else {
+        console.log(res)
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const checkAuth = async () => {
+    console.log('checkAuth')
+    // [TODO] Authenication
+    if (Cookies.get('user.logged_in')) {
+      setUser({
+        display_name: Cookies.get('user.name'),
+        handle: Cookies.get('user.username')
+      })
+    }
+  };
+
+  React.useEffect(()=>{
+    //prevents double call
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+
+    loadData();
+    checkAuth();
+  }, [])
+
+  return (
+    <article>
+      <DesktopNavigation user={user} active={'notifications'} setPopped={setPopped} />
+      <div className='content'>
+        <ActivityForm  
+          popped={popped}
+          setPopped={setPopped} 
+          setActivities={setActivities} 
+        />
+        <ReplyForm 
+          activity={replyActivity} 
+          popped={poppedReply} 
+          setPopped={setPoppedReply} 
+          setActivities={setActivities} 
+          activities={activities} 
+        />
+        <ActivityFeed 
+          title="Notifications" 
+          setReplyActivity={setReplyActivity} 
+          setPopped={setPoppedReply} 
+          activities={activities} 
+        />
+      </div>
+      <DesktopSidebar user={user} />
+    </article>
+  );
+}
+```
+![Alt text](../journal_images/frontend%20notification%20page.png)
+
+### Add in the  frontend-react-js/src/app.js file we are gonna make 2 addition:
+```sh
+import NotificationsFeedPage from './pages/NotificationsFeedPage';
+```
+
+```sh
+{
+  path: "/notifications",
+  element: <NotificationsFeedPage />
+},
+```
+![Alt text](../journal_images/app%20js%20notification%20add.png)
+
+>using this video as refrence https://www.youtube.com/watch?v=k-_o0cCpksk
+
 ## Adding DynamoDB Local and Postgres
 
 We are going to use Postgres and DynamoDB local in future labs
@@ -322,8 +485,7 @@ services:
     working_dir: /home/dynamodblocal
 ```
 
-Example of using DynamoDB local
-https://github.com/100DaysOfCloud/challenge-dynamodb-local
+
 
 ## Volumes
 
@@ -344,3 +506,57 @@ volumes:
   db:
     driver: local
 ```
+
+Example of using DynamoDB local
+https://github.com/100DaysOfCloud/challenge-dynamodb-local
+
+Dynamodb Local emulates a Dynamodb database in your local envirmoment
+for rapid developement and table design interation
+
+## Run Docker Local
+
+```
+docker-compose up
+```
+
+## Create a table
+
+```sh
+aws dynamodb create-table \
+    --endpoint-url http://localhost:8000 \
+    --table-name Music \
+    --attribute-definitions \
+        AttributeName=Artist,AttributeType=S \
+        AttributeName=SongTitle,AttributeType=S \
+    --key-schema AttributeName=Artist,KeyType=HASH AttributeName=SongTitle,KeyType=RANGE \
+    --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
+    --table-class STANDARD
+```
+
+## Create an Item
+
+```sh
+aws dynamodb put-item \
+    --endpoint-url http://localhost:8000 \
+    --table-name Music \
+    --item \
+        '{"Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Call Me Today"}, "AlbumTitle": {"S": "Somewhat Famous"}}' \
+    --return-consumed-capacity TOTAL  
+```
+
+## List Tables
+
+```sh
+aws dynamodb list-tables --endpoint-url http://localhost:8000
+```
+
+## Get Records
+
+```sh
+aws dynamodb scan --table-name Music --query "Items" --endpoint-url http://localhost:8000
+````
+
+## References
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.CLI.html
