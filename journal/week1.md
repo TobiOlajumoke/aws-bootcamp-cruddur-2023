@@ -745,3 +745,27 @@ docker push <username>/<repository>:<tag>
 - now let's check our docker destop
 
 ![Alt text](../journal_images/docker%20desktop%20image%20push.png)
+
+
+
+## Using an EC2 instance to run docker
+I'll be using an ubuntu 20.4 ec2 instance from AWS 
+
+>> images coming
+- i'll connect into the instance
+- run sudo apt update -y
+- run sudo apt install docker -y
+- run sudo apt  install git -y
+- git clone 
+- cd to aws
+- docker login
+
+- docker pull
+
+- docker ps
+
+
+## Congratulations you've completed this short tutorial
+
+
+![m2](https://i.pinimg.com/originals/47/fd/28/47fd2856377747c0f51b0adcf3050791.gif)
