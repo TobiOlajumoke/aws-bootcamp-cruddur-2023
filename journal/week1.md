@@ -687,3 +687,61 @@ docker ps
 
 
 
+## Installing docker on my windows machine from the cli 
+
+- The Docker Desktop app runs a Docker daemon in the background as a Windows service, which manages the containerized applications and services running on your machine. The Docker daemon on Windows uses the same API as on Linux, but there are some differences in how it is implemented due to differences in the underlying operating systems. The Docker Desktop app also provides a graphical user interface that makes it easy to manage containers, images, and other Docker-related resources.
+
+- Download the Docker Desktop Installer for Windows from the official Docker website: https://www.docker.com/products/docker-desktop
+
+- Open Git Bash on your Windows machine.
+
+- I'll be using gitbash
+![Alt text](../journal_images/gitbash.png)
+
+- Then we start our downloaded docker desktop
+
+![Alt text](../journal_images/docker%20desktop.png)
+
+- We sign in into  our docker hub account 
+
+![Alt text](../journal_images/docker%20signin.png)
+
+### Inside the terminal we:
+
+- cd to where our repo is mine is saved on my /Desktop
+- cd to the backend folder and build an image
+```sh
+docker build -t <myimage> .
+
+```
+![Alt text](../journal_images/docker%20desktop%20gitbash.png)
+
+- check the iamge
+```sh
+docker images
+```
+![Alt text](../journal_images/docker%20desktop%20backend%20image.png)
+- let's push it to the docker desktop
+
+- we login :
+```sh
+docker login
+```
+>we are not promted to use a password because we have signed into docker hu earlier
+- we tag the iamge we want to push
+```sh
+docker tag <image-name> <username>/<repository>:<tag>
+
+```
+- we push it 
+```sh
+docker push <username>/<repository>:<tag>
+
+```
+>looks like this
+
+![Alt text](../journal_images/docker%20desktop%20login%20tag%20push.png)
+
+- now let's check our docker destop
+
+![Alt text](../journal_images/docker%20desktop%20image%20push.png)
