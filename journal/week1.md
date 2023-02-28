@@ -1,5 +1,5 @@
 # Week 1 — App Containerization
-
+![Docker-image](https://i.pinimg.com/564x/16/42/ff/1642ffd5f5e613af2f3f44524e54714e.jpg)
 ## What is Docker?
 Docker is a platform that allows you to create, run, and manage applications in containers. Containers are a lightweight and portable way to package and distribute software, along with all of its dependencies and configuration settings. It is a tool that allows you to create and manage lightweight, portable containers that can run your applications in any environment, without worrying about dependencies or other environmental factors.
 
