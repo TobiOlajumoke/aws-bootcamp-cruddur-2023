@@ -583,3 +583,107 @@ https://www.youtube.com/watch?v=CbQNMaa6zTg
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
 
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tools.CLI.html
+
+
+## Implementing health check in the docker compose file 
+
+In Docker Compose, a health check is a way to check the status of a container and ensure that it is running correctly. A health check can be defined in the docker-compose.yml file for a service using the healthcheck parameter.
+
+A health check can be a simple command that runs inside the container to verify that the service is running correctly,When a health check is defined for a service, Docker Compose will periodically run the health check and determine whether the container is healthy or not. If a container fails a health check, Docker Compose can take various actions depending on the configuration, such as restarting the container or stopping the service.
+
+>paste the code in your dockercompose.yml file 
+
+
+```sh
+version: "3.8"
+services:
+  backend-flask:
+    environment:
+      FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+    build: ./backend-flask
+    ports:
+      - "4567:4567"
+    volumes:
+      - ./backend-flask:/backend-flask
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:4567/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  frontend-react-js:
+    environment:
+      REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+    build: ./frontend-react-js
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend-react-js:/frontend-react-js
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:3000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  dynamodb-local:
+    user: root
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8000/shell || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+
+networks: 
+  internal-network:
+    driver: bridge
+    name: cruddur
+
+volumes:
+  db:
+    driver: local
+
+```
+![Alt text](../journal_images/dockercompose%20%20health%20check.png)
+
+> The healthcheck section for the backend-flask service runs a command to check the health of the service every 30 seconds, with a timeout of 10 seconds.
+- run :
+```sh 
+docker-compose up
+```
+```sh
+docker ps
+```
+
+![Alt text](../journal_images/docker%20health%20status.png)
+
+
+>The status shows us the health of the container 
+
+
+
+
