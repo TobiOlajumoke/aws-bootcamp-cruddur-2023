@@ -750,19 +750,41 @@ docker push <username>/<repository>:<tag>
 
 ## Using an EC2 instance to run docker
 I'll be using an ubuntu 20.4 ec2 instance from AWS 
+![Alt text](../journal_images/ec2.png)
+![Alt text](../journal_images/ubuntu.png)
 
->> images coming
-- i'll connect into the instance
-- run sudo apt update -y
-- run sudo apt install docker -y
-- run sudo apt  install git -y
-- git clone 
-- cd to aws
-- docker login
+- After using t2.micro free tier create a new key pair or use an existing one
+![Alt text](../journal_images/default%20and%20launch.png)
 
-- docker pull
+- i'll connect via ssh using my gitbash terminal
+![Alt text](../journal_images/running%20connect.png)
 
-- docker ps
+- cd into the directory your pem file is located 
+![Alt text](../journal_images/ssh%20connect.png)
+
+- update the linux machine
+
+```sh
+sudo apt update -y
+```
+
+- Download docker into the linux machine:
+
+```sh
+sudo apt install docker.io -y
+```
+
+- login to your docker account 
+```sh
+sudo docker login
+```
+
+![Alt text](../journal_images/sudo%20docker%20pull%20and%20images.png)
+
+```sh
+sudo docker ps
+```
+
 
 
 ## Congratulations you've completed this short tutorial
