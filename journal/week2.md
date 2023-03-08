@@ -134,9 +134,68 @@ We need to add these two env vars to our backend-flask in our `docker-compose.ym
 ![Alt text](../journal_images/trace%20map.png)
 
 
+## CloudWatch Logs
 
 
+- Add to the `requirements.txt`
 
+```
+watchtower
+```
+- run: 
+```sh
+pip install -r requirements.txt
+```
+
+
+- In `app.py`
+add:
+```
+import watchtower
+import logging
+from time import strftime
+```
+
+```py
+# Configuring Logger to Use CloudWatch
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler()
+cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+LOGGER.addHandler(console_handler)
+LOGGER.addHandler(cw_handler)
+LOGGER.info("some message")
+```
+
+```py
+@app.after_request
+def after_request(response):
+    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+    return response
+```
+
+- We'll log something in an API endpoint
+```py
+LOGGER.info('test log')
+```
+
+- set the env var in your backend-flask for `docker-compose.yml`
+
+```yml
+      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+```
+
+- get the port address of the backend and add `/api/activities/home` to it back and refresh
+![Alt text](../journal_images/add%20api%20act%20and%20refresh.png)
+
+- check the cloudwatch console
+![Alt text](../journal_images/aws%20cloud%20watch.png)
+
+
+## Rollbar 
 
 
 
