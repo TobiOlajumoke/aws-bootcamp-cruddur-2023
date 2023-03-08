@@ -46,6 +46,11 @@ services:
       - "xray -o -b xray-daemon:2000"
     ports:
       - 2000:2000/udp
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8000/shell || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   dynamodb-local:
 

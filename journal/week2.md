@@ -66,12 +66,14 @@ aws xray create-group \
    --group-name "Cruddur" \
    --filter-expression "service(\"backend-flask\")"
 ```
+- check the aws console for result:
 ![Alt text](../journal_images/aws%20xray%20group%20create.png)
 
 
 ```sh
 aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 ```
+- check the aws console for result:
 ![Alt text](../journal_images/xray%20sample%20rule.png)
 
 
@@ -109,4 +111,32 @@ We need to add these two env vars to our backend-flask in our `docker-compose.ym
 
 [Github aws-xray-daemon](https://github.com/aws/aws-xray-daemon)
 [X-Ray Docker Compose example](https://github.com/marjamis/xray/blob/master/docker-compose.yml)
+
+
+- Run:
+`Docker compose up`
+
+![Alt text](../journal_images/docker%20compose.png)
+
+- Get the url from the port tab and add `/api/activities/home` to the back and enter
+
+![Alt text](../journal_images/api%20home.png)
+
+![Alt text](../journal_images/refresh%20apihome.png)
+
+- check the xray containers log
+![Alt text](../journal_images/Segments.png)
+
+
+- on the AWS console
+![Alt text](../journal_images/xray%20trace.png)
+
+![Alt text](../journal_images/trace%20map.png)
+
+
+
+
+
+
+
 
