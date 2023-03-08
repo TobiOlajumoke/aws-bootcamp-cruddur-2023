@@ -64,5 +64,49 @@ Paste in the terminal
 ```sh
 aws xray create-group \
    --group-name "Cruddur" \
-   --filter-expression "service(\"backend-flask\")
+   --filter-expression "service(\"backend-flask\")"
 ```
+![Alt text](../journal_images/aws%20xray%20group%20create.png)
+
+
+```sh
+aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
+```
+![Alt text](../journal_images/xray%20sample%20rule.png)
+
+
+
+### Add Deamon Service to Docker Compose
+We need to add these two env vars to our backend-flask in our `docker-compose.yml` file
+```yml
+  xray-daemon:
+    image: "amazon/aws-xray-daemon"
+    environment:
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS_REGION: "us-east-1"
+    command:
+      - "xray -o -b xray-daemon:2000"
+    ports:
+      - 2000:2000/udp
+```
+
+
+
+```yml
+      AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
+      AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
+```
+
+> Looks like this:
+![Alt text](../journal_images/xray%20docker%20compose.png)
+
+![Alt text](../journal_images/aws%20xray.png)
+
+
+> Refrences:
+ [Install X-ray Daemon](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon.html)
+
+[Github aws-xray-daemon](https://github.com/aws/aws-xray-daemon)
+[X-Ray Docker Compose example](https://github.com/marjamis/xray/blob/master/docker-compose.yml)
+
