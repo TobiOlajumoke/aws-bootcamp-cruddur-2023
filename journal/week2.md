@@ -200,11 +200,15 @@ LOGGER.info('test log')
 
 ## Rollbar
 
-https://rollbar.com/
+- Go to and sign up https://rollbar.com/
 
-Create a new project in Rollbar called `Cruddur`
+- Create a new project in Rollbar called `Cruddur`
+- get the ROLLBAR ACCESS TOKEN
+![Alt text](../journal_images/cruddur.png)
 
-Add to `requirements.txt`
+![Alt text](../journal_images/Rollbar%20access%20key.png)
+
+- Add to `requirements.txt`
 
 
 ```
@@ -212,7 +216,7 @@ blinker
 rollbar
 ```
 
-Install what is in the requirements.txt
+- Install what is in the requirements.txt
 
 ```sh
 pip install -r requirements.txt
@@ -267,5 +271,8 @@ def rollbar_test():
     return "Hello World!"
 ```
 
+![Alt text](../journal_images/rolbar%20app%20py.png)
+
 
 [Rollbar Flask Example](https://github.com/rollbar/rollbar-flask-example/blob/master/hello.py)
+
