@@ -172,7 +172,14 @@ We need to add these two env vars to our backend-flask in our `docker-compose.ym
       AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
       AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
 ```
+## XRAY SUB_SEGMENTS
+- after uncommenting xray codes in the app.py
 
+- in the user_activities.py 
+ we added xray subsegments mock data code 
+- The result
+![Alt text](../journal_images/trace%20andrew%20brown.png)
+![Alt text](../journal_images/mock%20data%20showing.png)
 > Looks like this:
 ![Alt text](../journal_images/xray%20docker%20compose.png)
 
