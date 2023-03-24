@@ -1,7 +1,3 @@
-# Week 3 — Decentralized Authentication
-
-This week i learnt about AWS Cognito
-
 ## Install AWS Amplify
 
 ```sh
@@ -140,4 +136,105 @@ export default function DesktopNavigation(props) {
 }
 ```
 
+We'll update `ProfileInfo.js`
+
+```js
+import { Auth } from 'aws-amplify';
+
+const signOut = async () => {
+  try {
+      await Auth.signOut({ global: true });
+      window.location.href = "/"
+  } catch (error) {
+      console.log('error signing out: ', error);
+  }
+}
+```
+
+We'll rewrite `DesktopSidebar.js` so that it conditionally shows components in case you are logged in or not.
+
+```js
+import './DesktopSidebar.css';
+import Search from '../components/Search';
+import TrendingSection from '../components/TrendingsSection'
+import SuggestedUsersSection from '../components/SuggestedUsersSection'
+import JoinSection from '../components/JoinSection'
+
+export default function DesktopSidebar(props) {
+  const trendings = [
+    {"hashtag": "100DaysOfCloud", "count": 2053 },
+    {"hashtag": "CloudProject", "count": 8253 },
+    {"hashtag": "AWS", "count": 9053 },
+    {"hashtag": "FreeWillyReboot", "count": 7753 }
+  ]
+
+  const users = [
+    {"display_name": "Andrew Brown", "handle": "andrewbrown"}
+  ]
+
+  let trending;
+  if (props.user) {
+    trending = <TrendingSection trendings={trendings} />
+  }
+
+  let suggested;
+  if (props.user) {
+    suggested = <SuggestedUsersSection users={users} />
+  }
+  let join;
+  if (props.user) {
+  } else {
+    join = <JoinSection />
+  }
+
+  return (
+    <section>
+      <Search />
+      {trending}
+      {suggested}
+      {join}
+      <footer>
+        <a href="#">About</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </footer>
+    </section>
+  );
+}
+```
+
+## Signin Page
+
+```js
+import { Auth } from 'aws-amplify';
+
+const [cognitoErrors, setCognitoErrors] = React.useState('');
+
+const onsubmit = async (event) => {
+  setCognitoErrors('')
+  event.preventDefault();
+  try {
+    Auth.signIn(username, password)
+      .then(user => {
+        localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
+        window.location.href = "/"
+      })
+      .catch(err => { console.log('Error!', err) });
+  } catch (error) {
+    if (error.code == 'UserNotConfirmedException') {
+      window.location.href = "/confirm"
+    }
+    setCognitoErrors(error.message)
+  }
+  return false
+}
+
+let errors;
+if (cognitoErrors){
+  errors = <div className='errors'>{cognitoErrors}</div>;
+}
+
+// just before submit component
+{errors}
+```
 
