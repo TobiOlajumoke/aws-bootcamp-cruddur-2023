@@ -32,6 +32,19 @@ Amplify.configure({
 });
 ```
 
+
+In the `app.py`
+
+```py
+cors = CORS(
+  app, 
+  resources={r"/api/*": {"origins": origins}},
+  headers=['Content-Type', 'Authorization'], 
+  expose_headers='Authorization',
+  methods="OPTIONS,GET,HEAD,POST"
+)
+```
+
 ## Conditionally show components based on logged in or logged out
 
 Inside our `HomeFeedPage.js`
@@ -351,14 +364,4 @@ Add in the `HomeFeedPage.js` a header eto pass along the access token
   }
 ```
 
-In the `app.py`
 
-```py
-cors = CORS(
-  app, 
-  resources={r"/api/*": {"origins": origins}},
-  headers=['Content-Type', 'Authorization'], 
-  expose_headers='Authorization',
-  methods="OPTIONS,GET,HEAD,POST"
-)
-```
