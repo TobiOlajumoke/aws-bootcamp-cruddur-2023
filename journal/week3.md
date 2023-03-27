@@ -251,6 +251,10 @@ if (cognitoErrors){
 {errors}
 ```
 
+
+### We'll create a new cognito user pool 
+-  select only "Email" 
+- get the user pool id and client and set it in the dockercompose.yml
 ## Signup Page
 
 ```js
