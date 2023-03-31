@@ -373,7 +373,7 @@ Add in the `HomeFeedPage.js` a header eto pass along the access token
 
 
 
-## Implementing Improved UI
+## Implementing Improved UI Desgins
 
 fixed UI border and background colors for:
 
