@@ -369,3 +369,21 @@ Add in the `HomeFeedPage.js` a header eto pass along the access token
 ```
 
 
+
+
+
+
+## Implementing Improved UI
+
+fixed UI border and background colors for:
+
+- Index.css
+- App.css
+- Search.css
+- Joinsection.css
+- Desktopsidebar.css
+- Activity.css
+- Signup.css
+- Signin.css
+
+when using the inspect tool in the browser, go to the network tab and disable the cache
