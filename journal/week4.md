@@ -8,8 +8,8 @@ aws rds create-db-instance \
   --db-instance-class db.t3.micro \
   --engine postgres \
   --engine-version  14.6 \
-  --master-username root \
-  --master-user-password huEE33z2Qvl383 \
+  --master-username Zabuza \
+  --master-user-password Zabuza007 \
   --allocated-storage 20 \
   --availability-zone us-east-1a \
   --backup-retention-period 0 \
@@ -25,3 +25,13 @@ aws rds create-db-instance \
 ```
 
 > This will take about 10-15 mins
+
+> Always remember when you turn off the RDS on the aws console it will come upp after 7days(do more research)
+
+
+# Next step
+To connect to psql via the psql client cli tool remember to use the host flag to specific localhost.
+
+```
+psql -Upostgres --host localhost
+```
