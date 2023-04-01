@@ -35,3 +35,14 @@ To connect to psql via the psql client cli tool remember to use the host flag to
 ```
 psql -Upostgres --host localhost
 ```
+
+
+- Create a DB
+```sql
+CREATE database cruddur;
+```
+
+
+- Create a folder called db in the backend and add a file called schema.sql
+
+
