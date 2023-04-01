@@ -46,3 +46,24 @@ CREATE database cruddur;
 - Create a folder called db in the backend and add a file called schema.sql
 
 
+## Add UUID Extension
+
+We are going to have Postgres generate out UUIDs.
+We'll need to use an extension called:
+```
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+```
+
+## Import Script
+
+We'll create a new SQL file called `schema.sql`
+and we'll place it in `backend-flask/db`
+
+cd to to backend directory and paste:
+
+The command to import:
+```
+psql cruddur < db/schema.sql -h localhost -U postgres
+```
+
+
