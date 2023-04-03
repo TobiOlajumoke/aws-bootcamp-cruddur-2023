@@ -66,4 +66,43 @@ The command to import:
 psql cruddur < db/schema.sql -h localhost -U postgres
 ```
 
+- paste on the bash terminal to export thr connection url:
+```
+export CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
+```
+
+then run :
+```
+psql $CONNECTION_URL
+```
+To test the connection
+
+![Alt text](../journal_images/psql.png)
+
+
+##
+we created a new folder called bin inside the backend-flask folder, and created 3 files
+db-create
+db-drop
+db-schema-load
+use the ccommand to locate the usrbin:
+```
+whereis bash
+```
+
+inside those three files paste the text:
+```sh
+#! usr/bin/bash
+```
+
+- cd to the backend-flask directory and we are going to change their mode and grant this files user and exceute permisssion:
+```sh
+chmod u+x bin/db-create
+```
+```sh
+chmod u+x bin/db-drop
+```
+```sh
+chmod u+x bin/db-schema-load
+```
 
