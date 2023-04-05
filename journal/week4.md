@@ -106,3 +106,8 @@ chmod u+x bin/db-drop
 chmod u+x bin/db-schema-load
 ```
 
+```sh
+chmod u+x bin/db-seed
+```
+
+
